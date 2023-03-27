@@ -3,8 +3,8 @@
  */
 
 
-/* SparseTree */
 /******************************************************************************/
+/* SparseTree */
 
 pub struct SparseTree<V: PartialEq + Copy, const N: usize> (Tree<V, N>, usize);
 
@@ -34,8 +34,10 @@ impl<V: PartialEq + Copy, const N: usize> SparseTree<V, N> {
 }
 
 #[derive(PartialEq)]
-enum Tree<V: PartialEq + Copy, const N: usize>
-    { Branch(Box<[Tree<V, N>]>), Leaf(V) }
+enum Tree<V: PartialEq + Copy, const N: usize> {
+    Branch(Box<[Tree<V, N>]>),
+    Leaf(V)
+}
 
 impl<V: PartialEq + Copy, const N: usize> Tree<V, N> {
 
